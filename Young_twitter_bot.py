@@ -1,24 +1,24 @@
 # -*- coding: utf-8 -*-
 
-import tweepy
+import tweepy                    #important package for twitter automation!!! enter this -'pip install tweepy' in your CMD
 
-consumer_key = 'maxjGQ41GxmdC8qQX0qNP7yn3'
-consumer_secret = 'ZI71K676lOsFjdfPcPZDt2Q3l7TuTgWNZkjW5fx4x13slyjfr2'
-access_token = '2916679106-kX4HEGa25wM14xz8xwCjSlXUez1HLY2pZ0inIxo'
-access_token_secret = 'u0cFW727dAueMizh7J5gIymAkOHVwgr4t3IF6yuBxfXQV'
+consumer_key = ''                #for these keys, you've to apply for twitter api by creating twitter app in twitter dev. section.
+consumer_secret = ''             #go to app.twitter.com / and you should have a twitter account for that.
+access_token = ''
+access_token_secret = ''
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 user = api.me()
-print(user.name)
+print(user.name)    #this will print your twitter id.
 
 def No_of_RT():
     
-    search = ("#KanganaRanaut")
+    search = ("python")          #only those tweets will be RTed which includes python.
               
-    numberofTweets = int(input("Enter the number of RT: "))
+    numberofTweets = int(input("Enter the number of RT: "))  #you can directly enter the number like 2 or 3 instead of user input
     
     for tweet in tweepy.Cursor(api.search, search).items(numberofTweets):
         
